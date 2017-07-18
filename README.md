@@ -1,4 +1,4 @@
-# react-natvie-2048
+# react-native-2048
 
 ### cd react-natvie-2048
 
