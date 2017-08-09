@@ -1,30 +1,22 @@
-'use strict';
-
 import React from "react";
 
-import {Animated, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {Animated, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import GameBoard from "./GameBoard";
 
 
 function getPageXY(event) {
-    if (Platform.OS == 'web') {
-        var touch = event.nativeEvent.changedTouches[0];
-        return {
-            pageX: touch.pageX,
-            pageY: touch.pageY
-        }
-    } else {
-        return {
-            pageX: event.nativeEvent.pageX,
-            pageY: event.nativeEvent.pageY
-        }
+
+    return {
+        pageX: event.nativeEvent.pageX,
+        pageY: event.nativeEvent.pageY
     }
+
 }
 
 
-var BOARD_PADDING = 3;
-var CELL_MARGIN = 4;
-var CELL_SIZE = 60;
+const BOARD_PADDING = 3;
+const CELL_MARGIN = 4;
+const CELL_SIZE = 60;
 
 class Cell extends React.Component {
     render() {
@@ -130,9 +122,9 @@ class GameEndOverlay extends React.Component {
         return (
             <View style={styles.overlay}>
                 <Text style={styles.overlayMessage}>{message}</Text>
-                <TouchableHighlight onPress={this.props.onRestart} style={styles.tryAgain}>
+                <TouchableOpacity onPress={this.props.onRestart} style={styles.tryAgain}>
                     <Text style={styles.tryAgainText}>Try Again?</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -206,7 +198,7 @@ export default class Game2048 extends React.Component {
     }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -313,5 +305,4 @@ var styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('app_980x', () => Game2048);
 

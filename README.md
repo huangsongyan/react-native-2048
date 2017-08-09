@@ -1,7 +1,14 @@
 # react-native-2048
 
-### cd react-natvie-2048
+### 运行命令
+```
+cd react-natvie-2048
+npm install
+react-native run-android  // for android
+react-native run-ios // for android
+```
 
-### npm install
+### 运行效果图
+![](app_gif.gif)
 
-### react-native run-android/run-ios
+
